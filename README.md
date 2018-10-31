@@ -1,7 +1,7 @@
 
 # Confidence Intervals with t-score
 
-### Introduction:
+## Introduction:
 
 In the previous lab we saw that if we have the standard deviation for the population, we can use use z-score to calculate our confidence interval using the mean of sample means. 
 
