@@ -1,7 +1,7 @@
 
-## Confidence Intervals with t-score
+# Confidence Intervals with T Distribution - Lab
 
-### Introduction:
+## Introduction
 
 In the previous lab we saw that if we have the standard deviation for the population, we can use use z-score to calculate our confidence interval using the mean of sample means. 
 
@@ -22,6 +22,8 @@ You will be able to:
 * Demonstrate how to use the t-distribution for constructing intervals for small sample sizes
 
 * Express a correct interpretation of confiendence intervals. 
+
+## Let's get started!
 
 
 ```python
@@ -311,6 +313,6 @@ plt.hlines(xmin=0, xmax=25,
 
 Just like the last lab, all but one of the 95% confidence intervals overlap the red line marking the true mean. This is to be expected: since a 95% confidence interval captures the true mean 95% of the time, we'd expect our interval to miss the true mean 5% of the time.
 
-## Summary and Conclusion
+## Summary
 
 In this lab we learnt how to use confidence intervals when population standard deviation is not known, and the sample size is small (<30) . We also saw how to construct them from random samples. The lesson differentiates between the use cases for z-score and t-distribution. We also saw how t value can be used to define the confidence interval based on confidence level. 
