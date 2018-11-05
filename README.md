@@ -1,7 +1,7 @@
 
-# Confidence Intervals with t-score
+# Confidence Intervals with T Distribution - Lab
 
-## Introduction:
+## Introduction
 
 In the previous lab we saw that if we have the standard deviation for the population, we can use use z-score to calculate our confidence interval using the mean of sample means. 
 
@@ -21,7 +21,7 @@ You will be able to:
 
 * Demonstrate how to use the t-distribution for constructing intervals for small sample sizes
 
-* Express a correct interpretation of confiendence intervals. 
+* Express a correct interpretation of confiendence intervals
 
 
 ```python
