@@ -23,6 +23,8 @@ You will be able to:
 
 * Express a correct interpretation of confiendence intervals
 
+## Let's get started!
+
 
 ```python
 # Import the necessary libraries
@@ -112,7 +114,7 @@ pop_ages.describe()
 
 
 
-![png](index_files/index_5_1.png)
+![png](index_files/index_6_1.png)
 
 
 Let's take a new, smaller sample (<30) and calculate how much sample mean differs from population mean.
@@ -281,7 +283,7 @@ for sample in range(25):
 
 
 
-![png](index_files/index_20_1.png)
+![png](index_files/index_21_1.png)
 
 
 Just like the last lab, all but one of the 95% confidence intervals overlap the red line marking the true mean. This is to be expected: since a 95% confidence interval captures the true mean 95% of the time, we'd expect our interval to miss the true mean 5% of the time.
