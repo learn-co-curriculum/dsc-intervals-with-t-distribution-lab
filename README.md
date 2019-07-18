@@ -10,7 +10,7 @@ If, on the other hand, standard deviation of the population is not known (which 
 The t-critical value is drawn from what's known as a t-distribution
 > A t-distribution  closely resembles the normal distribution but  gets wider and wider as the sample size falls.
 
-![](images/t-distr-img.gif)
+<img src="./images/new_t-distr-img.png" width="500">
 
 The t-distribution is available in scipy.stats with the nickname "t" so we can get t-critical values with `stats.t.ppf()`.
 
