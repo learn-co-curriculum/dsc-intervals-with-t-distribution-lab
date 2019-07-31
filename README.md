@@ -139,7 +139,7 @@ We can see that sample mean differs from population mean by 1.13 years. We can c
 
 
 ```python
-# Cal culate the t-critical value for 95% confidence level for sample taken above. 
+# Calculate the t-critical value for 95% confidence level for sample taken above. 
 t_critical = None   # Get the t-critical value  by using 95% confidence level and degree of freedom
 print("t-critical value:")                  # Check the t-critical value
 #print(t_critical)     
@@ -172,7 +172,7 @@ margin_of_error = None
 confidence_interval = None
 
 
-print("Confidence interval:")
+# print("Confidence interval:")
 #print(confidence_interval)
 
 # Confidence interval:
@@ -187,6 +187,7 @@ stats.t.interval(alpha = 0.95,              # Confidence level
                  df= 24,                    # Degrees of freedom
                  loc = sample_mean,         # Sample mean
                  scale = sigma)             # Standard deviation estimate
+# (18.4609156900928, 21.280661568850913)
 ```
 
 
@@ -236,7 +237,7 @@ def conf_interval(sample):
 
 
 ```python
-# set random seed for reproducability
+set random seed for reproducability
 np.random.seed(12)
 
 # Select the sample size 
@@ -268,22 +269,18 @@ for sample in range(25):
 # Plot the confidence intervals with sample and population means
 # Draw the mean and confidence interval for each sample
 # Draw the population mean 
-```
-
-
-```python
-
+# Draw the mean and confidence interval for each sample
 ```
 
 
 
 
-    <matplotlib.collections.LineCollection at 0x1a19dd8860>
+    <matplotlib.collections.LineCollection at 0x1a198414a8>
 
 
 
 
-![png](index_files/index_21_1.png)
+![png](index_files/index_20_1.png)
 
 
 Just like the last lab, all but one of the 95% confidence intervals overlap the red line marking the true mean. This is to be expected: since a 95% confidence interval captures the true mean 95% of the time, we'd expect our interval to miss the true mean 5% of the time.
