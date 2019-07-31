@@ -10,7 +10,7 @@ If, on the other hand, standard deviation of the population is not known (which 
 The t-critical value is drawn from what's known as a t-distribution
 > A t-distribution  closely resembles the normal distribution but  gets wider and wider as the sample size falls.
 
-<img src="./images/new_t-distr-img.png" width="500">
+<img src="images/new_t-distr-img.png" width="500">
 
 The t-distribution is available in scipy.stats with the nickname "t" so we can get t-critical values with `stats.t.ppf()`.
 
@@ -21,7 +21,7 @@ You will be able to:
 
 * Demonstrate how to use the t-distribution for constructing intervals for small sample sizes
 
-* Express a correct interpretation of confiendence intervals. 
+* Express a correct interpretation of confiendence intervals
 
 ## Let's get started!
 
@@ -115,7 +115,7 @@ pop_ages.describe()
 
 
 
-![png](index_files/index_3_1.png)
+![png](index_files/index_6_1.png)
 
 
 Let's take a new, smaller sample (<30) and calculate how much sample mean differs from population mean.
@@ -144,7 +144,7 @@ We can see that sample mean differs from population mean by 1.13 years. We can c
 
 
 ```python
-# Cal culate the t-critical value for 95% confidence level for sample taken above. 
+# Calculate the t-critical value for 95% confidence level for sample taken above. 
 t_critical = stats.t.ppf(q = 0.975, df=sample_size-1)  # Get the t-critical value*
 print("t-critical value:")                  # Check the t-critical value
 print(t_critical)     
@@ -303,12 +303,12 @@ plt.hlines(xmin=0, xmax=25,
 
 
 
-    <matplotlib.collections.LineCollection at 0x146369490b8>
+    <matplotlib.collections.LineCollection at 0x1a19837588>
 
 
 
 
-![png](index_files/index_17_1.png)
+![png](index_files/index_20_1.png)
 
 
 Just like the last lab, all but one of the 95% confidence intervals overlap the red line marking the true mean. This is to be expected: since a 95% confidence interval captures the true mean 95% of the time, we'd expect our interval to miss the true mean 5% of the time.
