@@ -64,73 +64,6 @@ pop_ages.describe()
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>20000.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>21.008578</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>3.671277</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>4.784588</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>18.662256</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>21.163276</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>23.489438</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>36.140116</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-![png](index_files/index_7_1.png)
-
-
-
 ```python
 # __SOLUTION__ 
 np.random.seed(20)
@@ -348,13 +281,6 @@ stats.t.interval(alpha = 0.95,              # Confidence level
 ```
 
 
-
-
-    (18.4609156900928, 21.280661568850913)
-
-
-
-
 ```python
 # __SOLUTION__ 
 stats.t.interval(alpha = 0.95,              # Confidence level
@@ -423,7 +349,7 @@ def conf_interval(sample):
 
     t = stats.t.ppf(q = 0.975, df=24)  #  t-critical value for 95% confidence
     
-    sigma = sample_stdev/math.sqrt(sample_size) 
+    sigma = sample.std()/math.sqrt(sample_size) 
 
     # Calculate the margin of error using formula given above
     moe = t * sigma
@@ -507,17 +433,6 @@ for sample in range(25):
 ```
 
 
-
-
-    <matplotlib.collections.LineCollection at 0x1a198414a8>
-
-
-
-
-![png](index_files/index_28_1.png)
-
-
-
 ```python
 # __SOLUTION__ 
 # Plot the confidence intervals with sample and population means
@@ -539,7 +454,7 @@ plt.hlines(xmin=0, xmax=25,
 
 
 
-    <matplotlib.collections.LineCollection at 0x1a19837588>
+    <matplotlib.collections.LineCollection at 0x1a1927f400>
 
 
 
