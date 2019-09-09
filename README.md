@@ -235,7 +235,7 @@ def conf_interval(sample):
 
     t = stats.t.ppf(q = 0.975, df=24)  #  t-critical value for 95% confidence
     
-    sigma = sample_stdev/math.sqrt(sample_size) 
+    sigma = sample.std()/math.sqrt(sample_size) 
 
     # Calculate the margin of error using formula given above
     moe = t * sigma
@@ -303,7 +303,7 @@ plt.hlines(xmin=0, xmax=25,
 
 
 
-    <matplotlib.collections.LineCollection at 0x1a19837588>
+    <matplotlib.collections.LineCollection at 0x1a1927f400>
 
 
 
