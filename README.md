@@ -50,73 +50,6 @@ pop_ages.hist(bins=100,range=(5,33),figsize=(9,9))
 pop_ages.describe()
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>20000.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>21.008578</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>3.671277</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>4.784588</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>18.662256</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>21.163276</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>23.489438</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>36.140116</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-![png](index_files/index_6_1.png)
-
-
 Let's take a new, smaller sample (<30) and calculate how much sample mean differs from population mean.
 
 
@@ -189,13 +122,6 @@ stats.t.interval(alpha = 0.95,              # Confidence level
                  scale = sigma)             # Standard deviation estimate
 # (18.4609156900928, 21.280661568850913)
 ```
-
-
-
-
-    (18.4609156900928, 21.280661568850913)
-
-
 
 We can see that the calculated confidence interval includes the population mean calculated above.
 
@@ -271,17 +197,6 @@ for sample in range(25):
 # Draw the population mean 
 # Draw the mean and confidence interval for each sample
 ```
-
-
-
-
-    <matplotlib.collections.LineCollection at 0x1a198414a8>
-
-
-
-
-![png](index_files/index_20_1.png)
-
 
 Just like the last lab, all but one of the 95% confidence intervals overlap the red line marking the true mean. This is to be expected: since a 95% confidence interval captures the true mean 95% of the time, we'd expect our interval to miss the true mean 5% of the time.
 
