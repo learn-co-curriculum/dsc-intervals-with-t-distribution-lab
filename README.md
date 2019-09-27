@@ -3,16 +3,16 @@
 
 ## Introduction
 
-In the previous lab we saw that if we have the standard deviation for the population, we can use use z-score to calculate our confidence interval using the mean of sample means. 
+In the previous lab, we saw that if we have the standard deviation for the population, we can use use $z$-score to calculate our confidence interval using the mean of sample means. 
 
-If, on the other hand, standard deviation of the population is not known (which is usually the case), you have to use the standard deviation of your sample as a stand in when creating confidence intervals. Since the sample standard deviation is often different then that of the population, further potential errors are introduced to our confidence intervals. To account for this error, we use what's known as a t-critical value instead of the z-critical value.
+If, on the other hand, the standard deviation of the population is not known (which is usually the case), you have to use the standard deviation of your sample as a stand-in when creating confidence intervals. Since the sample standard deviation is often different than that of the population, further potential errors are introduced to our confidence intervals. To account for this error, we use what's known as a t-critical value instead of the $z$-critical value.
 
 The t-critical value is drawn from what's known as a t-distribution
-> A t-distribution  closely resembles the normal distribution but  gets wider and wider as the sample size falls.
+> A t-distribution  closely resembles the normal distribution but gets wider and wider as the sample size falls.
 
 <img src="images/new_t-distr-img.png" width="500">
 
-The t-distribution is available in scipy.stats with the nickname "t" so we can get t-critical values with `stats.t.ppf()`.
+The t-distribution is available in `scipy.stats` with the nickname "t" so we can get t-critical values with `stats.t.ppf()`.
 
 ## Objectives
 You will be able to:
@@ -37,7 +37,7 @@ import random
 import math
 ```
 
-Let's investigate point estimates by generating a population of random age data collected a two different locations and then drawing a sample from it to estimate the mean:
+Let's investigate point estimates by generating a population of random age data collected at two different locations and then drawing a sample from it to estimate the mean:
 
 
 ```python
@@ -118,7 +118,7 @@ pop_ages.describe()
 ![png](index_files/index_6_1.png)
 
 
-Let's take a new, smaller sample (<30) and calculate how much sample mean differs from population mean.
+Let's take a new, smaller sample (<30) and calculate how much the sample mean differs from the population mean.
 
 
 ```python
@@ -138,7 +138,7 @@ print ("Mean Difference:", population_ages.mean() - sample_mean)
     Mean Difference: 1.1377888781920937
 
 
-We can see that sample mean differs from population mean by 1.13 years. We can calculate a confidence interval without the population standard deviation, using the t-distribution using `stats.t.ppf(q, df)` function. This function takes in a value for confidence level required (q) with "degree of freedom" (df) .
+We can see that the sample mean differs from the population mean by 1.13 years. We can calculate a confidence interval without the population standard deviation, using the t-distribution using `stats.t.ppf(q, df)` function. This function takes in a value for the confidence level required (q) with "degrees of freedom" (df).
 
 > degrees of freedom = sample_size -1.
 
@@ -157,7 +157,7 @@ print(t_critical)
     2.0638985616280205
 
 
-Calculate the confidence interval of the sample by sigma and calculating margin of error as:
+Calculate the confidence interval of the sample by sigma and calculating the margin of error as:
 > **sigma = sample_std/√n**
 
 > **Margin of Error = t-critical-value * sigma**
@@ -194,7 +194,7 @@ print(confidence_interval)
     (18.4609156900928, 21.280661568850913)
 
 
-We can verify our calculations by using the Python function stats.t.interval():
+We can verify our calculations by using the Python function `stats.t.interval()`:
 
 
 ```python
@@ -213,9 +213,9 @@ stats.t.interval(alpha = 0.95,              # Confidence level
 
 We can see that the calculated confidence interval includes the population mean calculated above.
 
-Lets run the code multiple times to see how often our estimated confidence interval covers the population mean value:
+Let's run the code multiple times to see how often our estimated confidence interval covers the population mean value:
 
-**Write a function using code above that takes in sample data and returns confidence intervals**
+**Write a function using the code above that takes in sample data and returns confidence intervals**
 
 
 
@@ -247,7 +247,7 @@ def conf_interval(sample):
     return conf
 ```
 
-**Call the function 25 times taking different samples at each iteration and calculating sample mean and confidence intervals**
+**Call the function 25 times taking different samples at each iteration and calculating the sample mean and confidence intervals**
 
 
 ```python
@@ -280,7 +280,7 @@ for sample in range(25):
 
 ```
 
-**Plot the confidence intervals along with sample means and population mean**
+**Plot the confidence intervals along with the sample means and population mean**
 
 
 ```python
@@ -315,4 +315,4 @@ Just like the last lab, all but one of the 95% confidence intervals overlap the 
 
 ## Summary
 
-In this lab we learnt how to use confidence intervals when population standard deviation is not known, and the sample size is small (<30) . We also saw how to construct them from random samples. The lesson differentiates between the use cases for z-score and t-distribution. We also saw how t value can be used to define the confidence interval based on confidence level. 
+In this lab, we learned how to use confidence intervals when the population standard deviation is not known, and the sample size is small (<30). We also saw how to construct them from random samples. We also learned the differences between the use cases for the $z$-score and t-distribution. We also saw how the t-value can be used to define the confidence interval based on the confidence level. 
