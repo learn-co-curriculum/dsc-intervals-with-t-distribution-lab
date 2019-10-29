@@ -7,7 +7,7 @@ In the previous lab, we saw that if we have the standard deviation for the popul
 
 If, on the other hand, the standard deviation of the population is not known (which is usually the case), you have to use the standard deviation of your sample as a stand-in when creating confidence intervals. Since the sample standard deviation is often different than that of the population, further potential errors are introduced to our confidence intervals. To account for this error, we use what's known as a t-critical value instead of the $z$-critical value.
 
-The t-critical value is drawn from what's known as a t-distribution
+The t-critical value is drawn from what's known as a t-distribution.
 > A t-distribution  closely resembles the normal distribution but gets wider and wider as the sample size falls.
 
 <img src="images/new_t-distr-img.png" width="500">
@@ -17,11 +17,8 @@ The t-distribution is available in `scipy.stats` with the nickname "t" so we can
 ## Objectives
 You will be able to:
 
-* Understand the concept of a confidence interval and be able to construct one for a mean
-
-* Demonstrate how to use the t-distribution for constructing intervals for small sample sizes
-
-* Express a correct interpretation of confiendence intervals
+* Calculate confidence intervals
+* Interpret confidence intervals in relation to true population parameters
 
 ## Let's get started!
 
@@ -143,7 +140,7 @@ pop_ages.describe()
 ![png](index_files/index_8_1.png)
 
 
-Let's take a new, smaller sample (<30) and calculate how much the sample mean differs from the population mean.
+Let's take a new, smaller sample (of size smaller than 30) and calculate how much the sample mean differs from the population mean.
 
 
 ```python
@@ -180,7 +177,9 @@ print ("Mean Difference:", population_ages.mean() - sample_mean)
 
 We can see that the sample mean differs from the population mean by 1.13 years. We can calculate a confidence interval without the population standard deviation, using the t-distribution using `stats.t.ppf(q, df)` function. This function takes in a value for the confidence level required (q) with "degrees of freedom" (df).
 
-> degrees of freedom = sample_size -1.
+> In this case, the number of degrees of freedom, `df`, is equal to the sample size minus 1, or `df = sample_size - 1`. 
+
+
 
 
 ```python
@@ -197,7 +196,7 @@ print("t-critical value:")                  # Check the t-critical value
 ```python
 # __SOLUTION__ 
 # Calculate the t-critical value for 95% confidence level for sample taken above. 
-t_critical = stats.t.ppf(q = 0.975, df=sample_size-1)  # Get the t-critical value*
+t_critical = stats.t.ppf(q = 0.975, df=sample_size-1)  # Get the t-critical value
 print("t-critical value:")                  # Check the t-critical value
 print(t_critical)     
 
@@ -216,7 +215,7 @@ Calculate the confidence interval of the sample by sigma and calculating the mar
 
 and finally the confidence interval can be calculated as : 
 
-> **Confidence interval = (sample_mean + margin of error, sample_mean - margin of error)**
+> **Confidence interval = (sample_mean - margin of error, sample_mean + margin of error)**
 
 
 ```python
