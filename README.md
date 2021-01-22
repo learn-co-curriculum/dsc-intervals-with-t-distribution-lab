@@ -58,8 +58,8 @@ population_ages1 = np.random.normal(20, 4, 10000)
 population_ages2 = np.random.normal(22, 3, 10000) 
 population_ages = np.concatenate((population_ages1, population_ages2))
 
-pop_ages = pd.DataFrame(population_ages columns=["Age"])
-pop_ages.hist(bins=100,range=(5,33),figsize=(9,9))
+pop_ages = pd.DataFrame(population_ages, columns=["Age"])
+pop_ages.hist(bins=100, figsize=(9,9))
 pop_ages.describe()
 ```
 
@@ -72,7 +72,7 @@ population_ages2 = np.random.normal(22, 3, 10000)
 population_ages = np.concatenate((population_ages1, population_ages2))
 
 pop_ages = pd.DataFrame(population_ages, columns=["Age"])
-pop_ages.hist(bins=100,range=(5,33),figsize=(9,9))
+pop_ages.hist(bins=100, figsize=(9,9))
 pop_ages.describe()
 ```
 
@@ -178,7 +178,7 @@ np.random.seed(23)
 
 sample_size = 25
 # Take a random sample of size 25 from above population
-sample = np.random.choice(a= population_ages, size = sample_size)
+sample = np.random.choice(a=population_ages, size=sample_size)
 # Calculate sample mean
 sample_mean = sample.mean()
 # Calculate population mean
@@ -229,7 +229,7 @@ print(t_critical)
 # __SOLUTION__ 
 
 # Get the t-critical value
-t_critical = stats.t.ppf(q = 0.975, df=sample_size-1)
+t_critical = stats.t.ppf(q=0.975, df=sample_size-1)
 
 # Check the t-critical value
 print("t-critical value:")
@@ -341,10 +341,12 @@ Let's verify our calculations by using the Python function `stats.t.interval()`:
 ```python
 # Run this cell without changes
 
-ci = stats.t.interval(alpha = 0.95,         # Confidence level
-                 df = sample_size - 1,      # Degrees of freedom
-                 loc = sample_mean,         # Sample mean
-                 scale = se)                # Standard error
+ci = stats.t.interval(
+    alpha=0.95,         # Confidence level
+    df=sample_size - 1, # Degrees of freedom
+    loc=sample_mean,    # Sample mean
+    scale=se            # Standard error
+)
 
 print("True Population Mean:")
 print(population_mean)
@@ -361,10 +363,12 @@ print(ci)
 ```python
 # __SOLUTION__ 
 
-ci = stats.t.interval(alpha = 0.95,         # Confidence level
-                 df = sample_size - 1,      # Degrees of freedom
-                 loc = sample_mean,         # Sample mean
-                 scale = se)                # Standard error
+ci = stats.t.interval(
+    alpha=0.95,         # Confidence level
+    df=sample_size - 1, # Degrees of freedom
+    loc=sample_mean,    # Sample mean
+    scale=se            # Standard error
+)
 
 print("True Population Mean:")
 print(population_mean)
@@ -442,10 +446,12 @@ def conf_interval(sample):
     standard_error = sample.std(ddof=1)/math.sqrt(sample_size) 
     
     # Compute confidence interval with stats.t.interval
-    conf = stats.t.interval(alpha = 0.95,
-                            df = n - 1,
-                            loc = x_hat,
-                            scale = standard_error)
+    conf = stats.t.interval(
+        alpha=0.95,
+        df=n - 1,
+        loc=x_hat,
+        scale=standard_error
+    )
     
     return conf
 
@@ -517,7 +523,7 @@ intervals = []
 # confidence interval and sample mean values in lists initialized above
 for sample in range(20):
     # Take a random sample of chosen size from population_ages
-    sample = np.random.choice(a = population_ages, size = sample_size)
+    sample = np.random.choice(a=population_ages, size=sample_size)
     
     # Calculate sample mean and confidence_interval
     sample_mean = sample.mean()
@@ -539,18 +545,23 @@ for sample in range(20):
 fig, ax = plt.subplots(figsize=(15,7))
 
 # Draw the means and confidence intervals for each sample
-ax.errorbar(x=np.arange(1, 21, 1),
-            y=sample_means,
-            yerr=[(upper-lower)/2 for upper, lower in intervals],
-            fmt='o',
-            color="gray",
-            markerfacecolor="blue")
+ax.errorbar(
+    x=np.arange(1, 21, 1),
+    y=sample_means,
+    yerr=[(upper-lower)/2 for upper, lower in intervals],
+    fmt='o',
+    color="gray",
+    markerfacecolor="blue"
+)
 
 # Draw the population mean as a horizontal line 
-ax.hlines(xmin=0, xmax=21,
-           y=population_ages.mean(), 
-           linewidth=2.0,
-           color="red")
+ax.hlines(
+    xmin=0,
+    xmax=21,
+    y=population_ages.mean(), 
+    linewidth=2.0,
+    color="red"
+)
 
 # Label plot
 ax.set_xlabel("Samples")
@@ -559,20 +570,24 @@ ax.set_ylabel("Means")
 # Customize legend appearance
 legend_elements = [
     # Sample mean (blue circle with gray edge)
-    Line2D([0],[0],
-           marker="o",
-           color="w",
-           markerfacecolor="blue",
-           markeredgecolor="gray"
-          ),
+    Line2D(
+        [0], # "Dummy" line being graphed
+        [0], # for use in the legend
+        marker="o",
+        color="w",
+        markerfacecolor="blue",
+        markeredgecolor="gray"
+    ),
     # Confidence interval (gray vertical line)
-    Line2D([0],[0],
-           marker="|",
-           markersize=15,
-           color="w",
-           markeredgewidth=1.5,
-           markeredgecolor="gray"
-          ),
+    Line2D(
+        [0],
+        [0],
+        marker="|",
+        markersize=15,
+        color="w",
+        markeredgewidth=1.5,
+        markeredgecolor="gray"
+    ),
     # Population mean (red horizontal line)
     Line2D([0],[0], color="red")
 ]
@@ -581,7 +596,8 @@ ax.legend(
     handles=legend_elements,
     labels=["Sample Mean", "Sample Confidence Interval for Mean", "True Population Mean"],
     loc="lower left", 
-    fontsize="large");
+    fontsize="large"
+);
 ```
 
 
@@ -592,18 +608,23 @@ ax.legend(
 fig, ax = plt.subplots(figsize=(15,7))
 
 # Draw the means and confidence intervals for each sample
-ax.errorbar(x=np.arange(1, 21, 1),
-            y=sample_means,
-            yerr=[(upper-lower)/2 for upper, lower in intervals],
-            fmt='o',
-            color="gray",
-            markerfacecolor="blue")
+ax.errorbar(
+    x=np.arange(1, 21, 1),
+    y=sample_means,
+    yerr=[(upper-lower)/2 for upper, lower in intervals],
+    fmt='o',
+    color="gray",
+    markerfacecolor="blue"
+)
 
 # Draw the population mean as a horizontal line 
-ax.hlines(xmin=0, xmax=21,
-           y=population_ages.mean(), 
-           linewidth=2.0,
-           color="red")
+ax.hlines(
+    xmin=0,
+    xmax=21,
+    y=population_ages.mean(), 
+    linewidth=2.0,
+    color="red"
+)
 
 # Label plot
 ax.set_xlabel("Samples")
@@ -612,20 +633,24 @@ ax.set_ylabel("Means")
 # Customize legend appearance
 legend_elements = [
     # Sample mean (blue circle with gray edge)
-    Line2D([0],[0],
-           marker="o",
-           color="w",
-           markerfacecolor="blue",
-           markeredgecolor="gray"
-          ),
+    Line2D(
+        [0], # "Dummy" line being graphed
+        [0], # for use in the legend
+        marker="o",
+        color="w",
+        markerfacecolor="blue",
+        markeredgecolor="gray"
+    ),
     # Confidence interval (gray vertical line)
-    Line2D([0],[0],
-           marker="|",
-           markersize=15,
-           color="w",
-           markeredgewidth=1.5,
-           markeredgecolor="gray"
-          ),
+    Line2D(
+        [0],
+        [0],
+        marker="|",
+        markersize=15,
+        color="w",
+        markeredgewidth=1.5,
+        markeredgecolor="gray"
+    ),
     # Population mean (red horizontal line)
     Line2D([0],[0], color="red")
 ]
@@ -634,7 +659,8 @@ ax.legend(
     handles=legend_elements,
     labels=["Sample Mean", "Sample Confidence Interval for Mean", "True Population Mean"],
     loc="lower left", 
-    fontsize="large");
+    fontsize="large"
+);
 ```
 
 
