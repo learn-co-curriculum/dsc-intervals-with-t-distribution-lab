@@ -192,7 +192,9 @@ Going forward, if you know that the confidence interval is the desired end resul
 
 ### Interpreting the Confidence Interval
 
-We can see that the calculated confidence interval (`ci`) includes the true population mean (`population_mean`) calculated above. That makes sense because we chose a 95% confidence level, meaning we're 95% confident that the computed confidence interval contains the true mean.
+We can see that the calculated confidence interval (`ci`) includes the true population mean (`population_mean`) calculated above. Since we generated a 95% confidence interval, we would expect that, if we repeatedly drew samples and calculated confidence intervals in the same way, the true population mean would be present within 95% of the confidence intervals we would calculate.
+
+We will illustrate (and visualize!) this point below.
 
 ## Confidence Intervals of Repeated Samples
 
@@ -338,7 +340,9 @@ ax.legend(
 
 ### Interpreting Confidence Intervals of Repeated Samples
 
-Just like the last lab, all but one of the 95% confidence intervals overlap the red line marking the true mean. This is to be expected: since a 95% confidence interval captures the true mean 95% of the time, we'd expect our interval to miss the true mean 5% of the time. It won't always turn out at exactly 1 out of 20 like this (just like flipping a coin twice won't always give you 1 heads and 1 tails), but this particular example turned out nicely.
+Just like the last lab, all but one of the 95% confidence intervals overlap the red line marking the true mean. This is to be expected: since we're generating a 95% confidence interval, we would expect after repeatedly sampling and calculating confidence intervals that 95% of the confidence intervals calculated would contain the true population mean, while 5% would not.
+
+It won't always turn out at exactly 1 out of 20 like this (just like flipping a coin twice won't always give you 1 heads and 1 tails), but this particular example turned out nicely.
 
 ## Summary
 
