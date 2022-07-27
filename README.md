@@ -9,11 +9,12 @@ If, on the other hand, the standard deviation of the population is not known (wh
 The t-critical value is drawn from what's known as a t-distribution.
 > A t-distribution  closely resembles the normal distribution but gets wider and wider as the sample size falls.
 
-<img src="images/new_t-distr-img.png" width="500">
+<img src="https://raw.githubusercontent.com/learn-co-curriculum/dsc-intervals-with-t-distribution-lab/master/images/new_t-distr-img.png" alt="comparison of t and z distributions" width="500">
 
 The t-distribution is available in `scipy.stats` with the nickname "t" so we can get t-critical values with `stats.t.ppf()`.
 
 ## Objectives
+
 You will be able to:
 
 * Calculate confidence intervals using the t-distribution
@@ -140,7 +141,9 @@ pop_ages.describe()
 
 
 
+    
 ![png](index_files/index_8_1.png)
+    
 
 
 **Important note:** If we actually had access to the full population data represented above, we would not need to calculate a confidence interval around the mean using sample data. We are taking a sample and calculating a confidence interval for demonstration purposes
@@ -666,7 +669,9 @@ ax.legend(
 ```
 
 
+    
 ![png](index_files/index_32_0.png)
+    
 
 
 ### Interpreting Confidence Intervals of Repeated Samples
