@@ -9,11 +9,12 @@ If, on the other hand, the standard deviation of the population is not known (wh
 The t-critical value is drawn from what's known as a t-distribution.
 > A t-distribution  closely resembles the normal distribution but gets wider and wider as the sample size falls.
 
-<img src="images/new_t-distr-img.png" width="500">
+<img src="https://raw.githubusercontent.com/learn-co-curriculum/dsc-intervals-with-t-distribution-lab/master/images/new_t-distr-img.png" alt="comparison of t and z distributions" width="500">
 
 The t-distribution is available in `scipy.stats` with the nickname "t" so we can get t-critical values with `stats.t.ppf()`.
 
 ## Objectives
+
 You will be able to:
 
 * Calculate confidence intervals using the t-distribution
