@@ -448,7 +448,7 @@ def conf_interval(sample):
     x_hat = sample.mean()
     
     # Standard error of the mean
-    standard_error = sample.std(ddof=1)/math.sqrt(sample_size) 
+    standard_error = sample.std(ddof=1)/math.sqrt(n) 
     
     # Compute confidence interval with stats.t.interval
     conf = stats.t.interval(
