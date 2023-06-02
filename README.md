@@ -345,7 +345,7 @@ Let's verify our calculations by using the Python function `stats.t.interval()`:
 # Run this cell without changes
 
 ci = stats.t.interval(
-    alpha=0.95,         # Confidence level
+    confidence=0.95,         # Confidence level
     df=sample_size - 1, # Degrees of freedom
     loc=sample_mean,    # Sample mean
     scale=se            # Standard error
@@ -367,7 +367,7 @@ print(ci)
 # __SOLUTION__ 
 
 ci = stats.t.interval(
-    alpha=0.95,         # Confidence level
+    confidence=0.95,         # Confidence level
     df=sample_size - 1, # Degrees of freedom
     loc=sample_mean,    # Sample mean
     scale=se            # Standard error
@@ -452,7 +452,7 @@ def conf_interval(sample):
     
     # Compute confidence interval with stats.t.interval
     conf = stats.t.interval(
-        alpha=0.95,
+        confidence=0.95,
         df=n - 1,
         loc=x_hat,
         scale=standard_error
@@ -553,7 +553,7 @@ fig, ax = plt.subplots(figsize=(15,7))
 ax.errorbar(
     x=np.arange(1, 21, 1),
     y=sample_means,
-    yerr=[(upper-lower)/2 for upper, lower in intervals],
+    yerr=[(upper-lower)/2 for lower, upper in intervals],
     fmt='o',
     color="gray",
     markerfacecolor="blue"
