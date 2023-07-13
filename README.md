@@ -553,7 +553,7 @@ fig, ax = plt.subplots(figsize=(15,7))
 ax.errorbar(
     x=np.arange(1, 21, 1),
     y=sample_means,
-    yerr=[(upper-lower)/2 for lower, upper in intervals],
+    yerr=[abs(upper-lower)/2 for lower, upper in intervals],
     fmt='o',
     color="gray",
     markerfacecolor="blue"
